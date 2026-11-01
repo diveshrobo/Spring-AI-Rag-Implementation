@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: ResumeAiOptimizer
+    
+  ai:
+    model:
+      chat: google-genai
+    google:
+      genai:
+        project-id: gen-lang-client-0590200975
+        api-key: 
+        chat:
+          options:
+            model: gemini-3.1-flash-lite
+        embedding:
+          api-key: 
+          project-id: 
+          text:
+            options:
+              model: gemini-embedding-001
+logging:
+  level:
+    '[org.springframework.ai]': DEBUG
+
+
+rag:
+  document:
+    location: classpath:documents/company-policy.txt
+
+  vector-store:
+    file: ./data/vector-store.json
+
+  search:
+    top-k: 5
+    similarity-threshold: 0.70
